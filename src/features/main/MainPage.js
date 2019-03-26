@@ -1,82 +1,44 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {View, Text, TouchableOpacity, FlatList, StyleSheet} from 'react-native';
 import {Card} from '@components';
 import {Icon} from 'react-native-elements';
 import {meetingsData} from '../../actions/meetingsData';
 import moment from 'moment';
-
 import {DETAIL} from '@navigation/screenName';
 import {CREATEMEETING} from '@navigation/screenName';
+import {createMeeting} from "@actions/index";
 
 //To navigate to Detail
 
-// const numColumns = 2;
+const numColumns = 2;
 const currentDate = new Date();
 const today = currentDate;
 const date = moment(today).format("MMMM D YYYY");
-const date2 = moment(today).format("l");
-const tomorrow = moment(today).add(1, 'days').format("MMMM D YYYY");
+const comparedDate = moment(today).format("l");
 
 class MainPage extends Component {
     state = {
-        data: meetingsData,
     }
     
     navigateTo = (route) => {
         this.props.navigateTo(route);
     }
     
-    renderCardToday = ({item}) => {
-        if(item.meetingTime.date === date2){
-            return(
-                <TouchableOpacity
-                    onPress={()=>this.navigateTo(DETAIL)} 
-                >
-                    <Card
-                        name={item.meetingName}
-                        meetingTime={item.meetingTime.startTime}
-                        hashtag='#UCMS'
-                        // This is where the beacon will be checked!
-                        checkin
-                    />
-                </TouchableOpacity>
-            )
-        }
-    }
-    renderCardFuture = ({item}) => {
-        if(item.meetingTime.date !== date2){
-            return(
-                <TouchableOpacity
-                    onPress={()=>this.navigateTo(DETAIL)} 
-                >
-                    <Card
-                        name={item.meetingName}
-                        meetingTime={item.meetingTime.startTime}
-                        hashtag='#UCMS'
-                        // This is where the beacon will be checked!
-                        checkout
-                    />
-                </TouchableOpacity>
-            )
-        }
-    }
-
     renderCard = ({item}) => {
-        if(item.meetingTime.date === date2){
-            return(
-                <TouchableOpacity
-                    onPress={()=>this.navigateTo(DETAIL)} 
-                >
-                    <Card
-                        name={item.meetingName}
-                        meetingTime={item.meetingTime.startTime}
-                        hashtag='#UCMS'
-                        // This is where the beacon will be checked!
-                        checkin
-                    />
-                </TouchableOpacity>
-            )
-        }
+        return(
+            <TouchableOpacity
+                onPress={()=>this.navigateTo(DETAIL)}
+            >
+                <Card
+                    meetingTitle={item.endTime}
+                    projectTitle={item.projectTitle}
+                    startTime={item.startTime}
+                    endTime={item.endTime}
+                    // checkin
+                />
+            </TouchableOpacity>
+        )
     }
     
     render() {
@@ -104,11 +66,11 @@ class MainPage extends Component {
                     <Text style={styles.todays}>Today, {date}</Text>
                 </View>
                 <FlatList
-                    data={this.state.data}
-                    keyExtractor = {item => item.meetingId}
-                    contentContainerStyle={styles.listView}
+                    contentContainerStyle={styles.listCardView}
+                    data={this.props.meeting}
+                    // keyExtractor = {item => item.meetingId}
+                    numColumns={numColumns}
                     renderItem={this.renderCard}
-                    // numColumns={numColumns}
                 />
             </View>
         )
@@ -128,11 +90,7 @@ const styles=StyleSheet.create({
         right: 35,
         bottom: 50,
     },
-    listView:{
-        // justifyContent:'center',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        // aligItems: 'center',
+    listCardView:{
         padding:7
     },
     yourlocation:{
@@ -164,4 +122,10 @@ const styles=StyleSheet.create({
     }
 });
 
-export default MainPage;
+const mapStateToProps = state => {
+    return {
+        meeting: state.meeting.meeting,
+    };
+};
+
+export default connect(mapStateToProps)(MainPage);

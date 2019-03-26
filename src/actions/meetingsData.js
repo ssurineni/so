@@ -8,160 +8,24 @@ export const meetingsData = [
             startTime: "11:30 AM",
             endTime: "12:30 PM"
         },
-        roomInfo: {
-            roomName: "3B Chestnut",
-            beaconID: "123123123",
-            beaconNumber: 1233
-        },
-        attendees: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-        ],
-        invited: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-            { userId: "123s"},
-            { userId: "sdf92"},
-            { userId: "sls0"},
-            { userId: "102k1"},
-        ],
-        agendaPoints: [
-            "Go over wireframes and user flow",
-            "Discuss needed components",
-            "Have Pizza",
-            "Discuss next steps"
-        ],
-        files: [
-            {
-                fileName: "notesForDonut.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "notes.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "meeting.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "done.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-        ]
     },
     {
         meetingId: "11239s",
         meetingName: "AWS Set Up",
         meetingTime: {
-            date: "3/6/2019",
+            date: "3/14/2019",
             startTime: "11:30 AM",
             endTime: "12:30 PM"
         },
-        roomInfo: {
-            roomName: "3B Delaware",
-            beaconID: "123123123",
-            beaconNumber: 1233
-        },
-        attendees: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-        ],
-        invited: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-            { userId: "123s"},
-            { userId: "sdf92"},
-            { userId: "sls0"},
-            { userId: "102k1"},
-            { userId: "2212"},
-        ],
-        agendaPoints: [
-            "Go over wireframes and user flow",
-            "Discuss needed components",
-            "Have Pizza",
-            "Discuss next steps"
-        ],
-        files: [
-            {
-                fileName: "notesForDonut.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "notes.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "meeting.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "done.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-        ]
     },
     {
         meetingId: "19ss",
         meetingName: "Jump in the office",
         meetingTime: {
-            date: "3/4/2019",
+            date: "3/7/2019",
             startTime: "11:30 AM",
             endTime: "12:30 PM"
         },
-        roomInfo: {
-            roomName: "3B Chestnut",
-            beaconID: "123123123",
-            beaconNumber: 1233
-        },
-        attendees: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-        ],
-        invited: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-            { userId: "123s"},
-            { userId: "sdf92"},
-            { userId: "sls0"},
-            { userId: "102k1"},
-        ],
-        agendaPoints: [
-            "Go over wireframes and user flow",
-            "Discuss needed components",
-            "Have Pizza",
-            "Discuss next steps"
-        ],
-        files: [
-            {
-                fileName: "notesForDonut.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "notes.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "meeting.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "done.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-        ]
     },
     {
         meetingId: "1239",
@@ -171,51 +35,6 @@ export const meetingsData = [
             startTime: "11:30 AM",
             endTime: "12:30 PM"
         },
-        roomInfo: {
-            roomName: "3B Chestnut",
-            beaconID: "123123123",
-            beaconNumber: 1233
-        },
-        attendees: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-        ],
-        invited: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-            { userId: "123s"},
-            { userId: "sdf92"},
-            { userId: "sls0"},
-            { userId: "102k1"},
-        ],
-        agendaPoints: [
-            "Go over wireframes and user flow",
-            "Discuss needed components",
-            "Have Pizza",
-            "Discuss next steps"
-        ],
-        files: [
-            {
-                fileName: "notesForDonut.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "notes.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "meeting.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "done.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-        ]
     },
     {
         meetingId: "12s10ss",
@@ -225,50 +44,5 @@ export const meetingsData = [
             startTime: "11:30 AM",
             endTime: "12:30 PM"
         },
-        roomInfo: {
-            roomName: "3G Hanover",
-            beaconID: "123123123",
-            beaconNumber: 1233
-        },
-        attendees: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-        ],
-        invited: [
-            { userId: "1232"},
-            { userId: "12j3"},
-            { userId: "d9s21"},
-            { userId: "s01k2"},
-            { userId: "123s"},
-            { userId: "sdf92"},
-            { userId: "sls0"},
-            { userId: "102k1"},
-        ],
-        agendaPoints: [
-            "Go over wireframes and user flow",
-            "Discuss needed components",
-            "Have Pizza",
-            "Discuss next steps"
-        ],
-        files: [
-            {
-                fileName: "notesForDonut.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "notes.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "meeting.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-            {
-                fileName: "done.pdf",
-                uri: "www.localhost:1200/notesForDonut"
-            },
-        ]
     },
 ]

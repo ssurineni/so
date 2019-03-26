@@ -1,7 +1,7 @@
 import {CREATE_MEETING} from '@actions/types';
 
 const INITIAL_STATE = {
-  meetings: [],
+  meeting: [],
 };
 
 export default reducer = (state=INITIAL_STATE, action) => {
@@ -10,7 +10,13 @@ export default reducer = (state=INITIAL_STATE, action) => {
     case CREATE_MEETING:
       return {
         ...state,
-        meetings: payload.meeting,
+        meeting: state.meeting.concat ({
+          startTime: payload.startTime,
+          endTime: payload.endTime,
+          roomNumber: payload.roomNumber,
+          meetingTitle: payload.meetingTime,
+          projectTitle: payload.projectTitle
+        }),
       };
     default:
       return state;

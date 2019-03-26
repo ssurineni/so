@@ -1,28 +1,58 @@
+// Create page would be my SharePlace screen
+// Replicate whatever is in the awesome-place project in here
+
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import { colors, dimensions } from "@styles/base";
 import {View, Text, TouchableOpacity, Dimensions, StyleSheet} from 'react-native';
 import {Button, Input} from '@components';
+import { connect } from 'react-redux';
 
 import {MAIN_S} from '@navigation/screenName';
 
 class CreatePage extends Component {
   state = {
-    email: ""
   }
 
   navigateTo = (route) => {
     this.props.navigateTo(route);
   }
   
-  emailChangedHandler = val => {
+  startTimeChangedHandler = val => {
     this.setState({
-      email: val
+      startTime: val
+    })
+  }
+  endTimeChangedHandler = val => {
+    this.setState({
+      endTime: val
+    })
+  }
+  roomNumberChangedHandler = val => {
+    this.setState({
+      roomNumber: val
+    })
+  }
+  meetingTitleChangedHandler = val => {
+    this.setState({
+      meetingTitle: val
+    })
+  }
+  projectTitleChangedHandler = val => {
+    this.setState({
+      projectTitle: val
     })
   }
 
-  addCardHandler = () => {
-    
+  meetingAddedHandler = () => {
+    if (this.state.startTime.trim() !== "") {
+      this.props.onAddMeeting(
+        this.state.startTime,
+        this.state.endTime,
+        this.state.roomNumber,
+        this.state.meetingTitle,
+        this.state.projectTitle
+      );
+    }
   }
 
   render() {
@@ -30,30 +60,40 @@ class CreatePage extends Component {
       <View style={{flex: 1}}>
         <Text style={{color: 'white', padding:40}}>Create Meeting</Text>
         <View style={{justifyContent: 'center', alignItems:'center'}}>
-          <Input 
-            title="Email"
-            onChangeText={this.emailChangedHandler}
-          />
-          <Input 
-            title="Password"
-          />
-          <Input 
+          {/* meetingName:Redux */}
+          <Input
             title="Start time"
+            startTime={this.state.startTime}
+            onChangeText={this.startTimeChangedHandler}
           />
           <Input 
             title="End time"
+            endTime={this.state.endTime}
+            onChangeText={this.endTimeChangedHandler}
+            />
+          <Input 
+            title="Room"
+            roomNumber={this.state.roomNumber}
+            onChangeText={this.roomNumberChangedHandler}
+          />
+          <Input 
+            title="Title"
+            meetingTitle={this.state.meetingTitle}
+            onChangeText={this.meetingTitleChangedHandler}
           />
           <Input 
             title="Project"
-          />
-          <Input 
-            title="Room"
+            projectTitle={this.state.projectTitle}
+            onChangeText={this.projectTitleChangedHandler}
           />
         </View>
         <View style={style.addContainer}>
           <TouchableOpacity
-            onPress={()=>this.navigateTo(MAIN_S)}
-            // onPress={this.addCardHandler}
+            onPress={
+              this.meetingAddedHandler
+              // this.addCardToMainScreen
+              // ()=>this.navigateTo(MAIN_S)
+            }
           >  
             <View style={style.addView}>
               <Text style={style.addText}>
@@ -88,8 +128,11 @@ const style=StyleSheet.create({
   }
 });
 
-// const mapStateToProps = (state) => {
-//   return state.createMeeting;
-// }
-// export default connect(mapStateToProps, {})(CreatePage);
-export default CreatePage;
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddMeeting: (startTime, endTime, roomNumber, meetingTitle, projectTitle) => dispatch(createMeeting(startTime, endTime, roomNumber, meetingTitle, projectTitle)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CreatePage);
+// export default CreatePage;
